@@ -3,6 +3,7 @@
   var module = { exports: {} };
 
   var WANTED = ["cheerful choco", "robo nelly", "clyde bot", "doggo replies", "wumpus beyond", "sassy peach"];
+  var STICKER_NAMES = ["wave", "sup", "scream"];
 
   var logger = vendetta.logger;
 
@@ -42,19 +43,20 @@
           var hit = WANTED.filter(function (w) { return pname.indexOf(w) !== -1; })[0];
           if (!hit) return;
           found[hit] = true;
-          lines.push("PACK: " + pack.name + " (pack id " + pack.id + ")");
-          (pack.stickers || []).forEach(function (s) {
-            lines.push("  " + s.name + " | " + s.id + " | " + (s.description || ""));
+          var matches = (pack.stickers || []).filter(function (s) {
+            return STICKER_NAMES.indexOf(lower(s.name)) !== -1;
+          });
+          if (!matches.length) {
+            lines.push(pack.name + ": no Wave/Sup/Scream sticker");
+          }
+          matches.forEach(function (s) {
+            lines.push(pack.name + " | " + s.name + " | " + s.id);
           });
         });
 
         WANTED.forEach(function (w) {
           if (!found[w]) lines.push("PACK NOT FOUND BY NAME: " + w);
         });
-
-        if (WANTED.some(function (w) { return !found[w]; })) {
-          lines.push("ALL PACK NAMES: " + packs.map(function (p) { return p.name; }).join(" ; "));
-        }
 
         var text = lines.join("\n");
         logger.log("[StickerIDFinder]\n" + text);

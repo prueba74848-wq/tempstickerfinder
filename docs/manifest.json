@@ -1,6 +1,6 @@
 {
     "name": "StickerIDFinder",
-    "description": "Copies the IDs of the stickers in six default Discord packs to your clipboard.",
+    "description": "Copies the IDs of the Wave, Sup and Scream stickers in six default Discord packs to your clipboard.",
     "authors": [
         {
             "name": "you",
@@ -11,5 +11,5 @@
     "vendetta": {
         "icon": "ic_search"
     },
-    "hash": "ce7a637ccbcd2e44e906514e52f88adebebc23a12b39e37eca958977eb46c3bc"
+    "hash": "438c2fcb58483228492053020c962c74fb27f82454917168cf746bc7f8d2b250"
 }

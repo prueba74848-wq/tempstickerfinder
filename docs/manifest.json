@@ -1,0 +1,15 @@
+{
+    "name": "StickerIDFinder",
+    "description": "Copies the IDs of the stickers in six default Discord packs to your clipboard.",
+    "authors": [
+        {
+            "name": "you",
+            "id": "0"
+        }
+    ],
+    "main": "index.js",
+    "vendetta": {
+        "icon": "ic_search"
+    },
+    "hash": "ce7a637ccbcd2e44e906514e52f88adebebc23a12b39e37eca958977eb46c3bc"
+}
